@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TF_Csharp_OO_FS_Net.Models
 {
-    internal class Personne
+    public class Personne
     {
 
         public string Nom { get; set; }

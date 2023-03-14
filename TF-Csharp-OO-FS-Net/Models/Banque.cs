@@ -15,13 +15,13 @@ namespace TF_Csharp_OO_FS_Net.Models
 
         public string Nom { get; set; }
 
-        private List<Courant> Comptes { get; set; } = new List<Courant>();
+        private List<Compte> Comptes { get; set; } = new List<Compte>();
 
-        public Courant? this[string numero]
+        public Compte? this[string numero]
         {
             get
             {
-                foreach (Courant compte in Comptes)
+                foreach (Compte compte in Comptes)
                 {
                     if (compte.Numero == numero)
                     {
@@ -38,7 +38,7 @@ namespace TF_Csharp_OO_FS_Net.Models
 
         }
 
-        public void Ajouter(Courant compte)
+        public void Ajouter(Compte compte)
         {
             Comptes.Add(compte);
             Console.WriteLine($"Compte numero {compte.Numero} bien ajouté a la banque {Nom}.");
@@ -46,7 +46,7 @@ namespace TF_Csharp_OO_FS_Net.Models
 
         public void Supprimer(string numero)
         {
-            Courant? compteAsupprimer = this[numero];
+            Compte? compteAsupprimer = this[numero];
 
             if (compteAsupprimer != null)
             {
@@ -66,9 +66,9 @@ namespace TF_Csharp_OO_FS_Net.Models
         public double AvoirDesComptes(Personne titulaire)
         {
             // Recuperer les comptes du titulaire
-            List<Courant> comptesDuTitulaire= new List<Courant>();
+            List<Compte> comptesDuTitulaire= new List<Compte>();
 
-            foreach (Courant compte in Comptes)
+            foreach (Compte compte in Comptes)
             {
                 if (compte.Titulaire == titulaire)
                 {
@@ -82,7 +82,7 @@ namespace TF_Csharp_OO_FS_Net.Models
 
             double resultat = 0;
 
-            foreach (Courant compte in comptesDuTitulaire)
+            foreach (Compte compte in comptesDuTitulaire)
             {
                 resultat += compte;
             }

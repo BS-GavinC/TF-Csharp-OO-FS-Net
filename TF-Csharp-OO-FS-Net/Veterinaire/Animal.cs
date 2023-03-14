@@ -14,17 +14,12 @@ namespace TF_Csharp_OO_FS_Net.Veterinaire
             Race = race;
             Couleur = couleur;
         }
-
         public string Nom { get; set; }
         public string Race { get; set; }
         public string Couleur { get; set; }
-
-
         public void Presenter()
         {
             Console.WriteLine($"Cet animal s'appelle {Nom} et est un {Race} de couleur {Couleur}.");
         }
-
-
     }
 }

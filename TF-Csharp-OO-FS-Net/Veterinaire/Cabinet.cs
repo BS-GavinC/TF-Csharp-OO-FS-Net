@@ -32,7 +32,6 @@ namespace TF_Csharp_OO_FS_Net.Veterinaire
             }
 
         }
-
         public void Supprimer(Animal animal)
         {
             bool estContenu = animals.Contains(animal);
@@ -46,7 +45,6 @@ namespace TF_Csharp_OO_FS_Net.Veterinaire
                 Console.WriteLine("L'animal n'est pas chez nous.");
             }
         }
-
         public void Lister()
         {
             foreach (Animal animal in animals)
@@ -54,6 +52,5 @@ namespace TF_Csharp_OO_FS_Net.Veterinaire
                 animal.Presenter();
             }
         }
-
     }
 }

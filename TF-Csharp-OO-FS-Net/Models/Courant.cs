@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace TF_Csharp_OO_FS_Net.Models
 {
-    internal class Courant
+    public class Courant : Compte
     {
 
         #region Props
-
-        public string Numero { get; set; }
-
-        public double Solde { get; set; } // Lecture Seule
 
         private double _ligneDeCredit;
 
@@ -26,51 +22,21 @@ namespace TF_Csharp_OO_FS_Net.Models
                 {
                     _ligneDeCredit = value;
                 }
-
             }
         }
-
-        public Personne Titulaire { get; set; }
 
 
         #endregion
 
-
-        
-        public static double operator +(double solde, Courant compte2)
-        {
-            
-            // Equivalent du premier ternaire ci dessous
-
-            //double valeur;
-
-            //if (compte1.Solde > 0)
-            //{
-            //    valeur= compte1.Solde;
-            //}
-            //else
-            //{
-            //    valeur = 0;
-            //}
-
-            
-
-            
-            double valeur2 = compte2.Solde > 0 ? compte2.Solde : 0;
-            return solde + valeur2;
-        }
-
-
         #region Methodes
 
-        void Retrait(double montant)
+        public override void Retrait(double montant)
         {
-
+            base.Retrait(montant,LigneDeCredit);
         }
-
-        void Depot(double montant)
+        protected override double CalculInteret()
         {
-
+            return Solde >= 0 ? Solde * .03 : Solde * .0975;
         }
 
         #endregion
